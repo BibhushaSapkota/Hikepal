@@ -1,0 +1,22 @@
+.about-container {
+    margin: 4rem 6rem;
+    text-align: start;
+}
+
+.about-container h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    color: #f9660bee;
+}
+.about-container p {
+    font-size: 1rem;
+    padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+    .about-container {
+        margin: 4rem 2rem;
+    }
+}
+    
