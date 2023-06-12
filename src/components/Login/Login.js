@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import './Loginpage.css';
 import { Link } from 'react-router-dom';
 import background from './background.jpeg'
+import userService from '../../Services/UserService';
+import { message } from 'antd';
+
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[isLogged, setIsLogged] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -17,7 +21,21 @@ function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
+    if (!email || !password) {
+      message.warning("All fields are required");
+      return;
+    }
+    userService.login({ email, password })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("token", response.data.token);
+        message.success("Login Successful");
+        setIsLogged(true);
+        window.location = "/";
+      
+      }
+      )
+      .catch((err) => window.alert(err.response.data.error));
   };
 
   return (

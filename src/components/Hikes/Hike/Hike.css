@@ -1,0 +1,46 @@
+.hike-card{
+    width:calc(25% - 2rem);
+    margin-bottom: 2rem;
+}
+.hike-card:hover .thumbnail img{
+    transform: scale(1.1);
+}
+.thumbnail{
+    width:30vh;
+    height:30vh;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0,0,0,0.05);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;    
+}
+.thumbnail img{
+   display: block;
+   width: 100%;
+   transition: all ease 0.3s;
+   z-index: -99;
+}
+
+.hike-info .hike-name{
+    font-size: 1rem;
+    display: block;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;  
+    margin-bottom: 0.5rem;
+}
+.hike-info .hike-price{
+    font-size: 0.8rem;
+    color: #5a5a5a92;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 900px){
+    .hike-card{
+        width: calc(50% - 1rem);
+    }
+    
+}
