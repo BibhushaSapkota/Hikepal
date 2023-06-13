@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./RegistrationForm.css";
 import backgroundImage from "./background1.jpg";
+import userService from "../../Services/UserService";
+import { Navigate } from "react-router-dom";
+import { message } from "antd";
 
 function RegistrationForm() {
   const [firstName, setFirstName] = useState("");
@@ -11,10 +14,33 @@ function RegistrationForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Perform registration logic here
-  };
+
+
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      if (!firstName ||!lastName  ||!phoneNumber || !email || !password || !confirmPassword) {
+        throw new Error('All fields are required')
+      }  
+      if (password !== confirmPassword) {
+        throw new Error('Passwords do not match')
+      } 
+      const response = await userService.register({firstName,lastName,phoneNumber,email,password })
+      
+  
+      if (response.data.status) {
+        message.success("User registered Successful")
+        Navigate('/login')
+        
+      } else {
+        throw new Error('Error occurred while registering')
+      }
+    } catch (error) {
+      window.alert(e.response.data.error)
+    }
+  }
+  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

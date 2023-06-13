@@ -1,0 +1,28 @@
+.hikes-container{
+    margin:4rem 6rem;
+}
+.section-heading{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+.section-heading::after{
+    content: "";
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #f9660bee;
+    margin-top: 1rem;
+}
+.hikes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@media screen and (max-width: 900px){
+    .hikes-container{
+        margin: 4rem 2rem;
+    }
+}
