@@ -10,7 +10,7 @@
     height:70vh;
     position: relative;
     overflow: hidden;
-    z-index: -99;
+    z-index: -99;   
 }
 .hero-mid h1{
     padding-top: 4rem !important;
@@ -53,6 +53,7 @@ img{
     font-size: 1.2rem;
     font-weight: bold;
     color: #fe9955e1;
+   
 
 }
 
