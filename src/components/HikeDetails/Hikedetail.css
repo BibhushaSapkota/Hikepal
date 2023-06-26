@@ -1,0 +1,152 @@
+.hike-main-content {
+    margin: 8rem 0;
+}
+
+.layout {
+    max-width: 80%;
+    margin: 0 auto;
+    background-color: azure;
+}
+
+.hike-detail-page {
+    display: flex;
+    flex-direction: row;
+}
+
+.hike-detail-page .left {
+    width: 50%;
+    height: 50%;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.hike-detail-page .left img {
+    width: 100%;
+    display: block;
+
+}
+
+.hike-detail-page .right {
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+}
+
+.hike-location {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hike-date {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.hike-meetuplocation{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+.hike-duration{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hike-description {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    color: gray;
+}
+
+
+
+.join-hike-button {
+    outline: 0;
+    border: 0;
+    height: 5rem;
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    background-color: #f9660bee;
+    border-bottom: 3px solid #f9660bee;
+    flex-grow: unset;
+
+}
+
+.divider {
+    margin: 20px 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+.info-item .text-bold {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+    .single-product-main-content {
+        margin: 4rem 0;
+    }
+
+    .layout {
+        max-width: calc(100% -1rem);
+        margin: 0 auto;
+    }
+
+    .single-product-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .single-product-page .left {
+        width: 100%;
+    }
+
+    .single-product-page .right {
+        padding-top: 2rem;
+    }
+
+    .product-name {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .product-description {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    
+
+    .add-to-cart-button {
+        height: 3rem;
+        font-size: 1rem;
+        flex-grow: 1;
+    }
+
+
+}

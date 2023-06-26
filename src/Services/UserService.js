@@ -10,4 +10,6 @@ const register = (userDetails) => {
     return axios.post(`${baseUrl}/register`, userDetails);
 }
 
+
+
 export default { login, register };
