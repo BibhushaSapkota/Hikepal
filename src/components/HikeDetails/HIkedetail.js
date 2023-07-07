@@ -7,8 +7,27 @@ import {
 } from "react-icons/fa";
 import {message } from 'antd';
 import NavBar from '../Navbar/NavBar';
+import JHikeService from '../../Services/JHikeService';
 
 const HikeDetailPage=({hike})=>{
+    const [joinhikeitems,setjoinhikeitems]=useState([]);
+
+    const joinhike =(hike)=> {
+        JHikeService.joinhike({hike})
+            .then((response) => {
+                setjoinhikeitems(response.data);
+                console.log(response.data);
+                if(response.status === 201){
+                    message.success('Hike joined successfully');
+                    
+                }
+                else{
+                    message.error(`Error: ${response.message}`);
+                }       
+            }
+            )       
+          };
+    
     return(
         <>
         <NavBar/>
@@ -27,7 +46,7 @@ const HikeDetailPage=({hike})=>{
                         <span className='hike-meetuplocation'>Meetuplocation: {hike.Meetuplocation}</span>
                         <span className='hike-description'>{hike.Description}</span>
                         
-                            <button className='join-hike-button'>
+                            <button className='join-hike-button' onClick={()=>joinhike(hike)}>
                                     Join Hike
                             </button>
 

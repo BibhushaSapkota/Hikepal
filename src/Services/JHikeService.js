@@ -7,7 +7,23 @@ const getjhikes = () => {
 }
 
 const joinhike = (hikeDetails) => {
-    return axios.post(`${baseUrl}`, hikeDetails);
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.post(`${baseUrl}`, hikeDetails,config);
 }
 
-export default { gethikes, addhike};
+const  getJhikeItems= () => {
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.get(`${baseUrl}/user/${window.localStorage.getItem('id')}`, config);
+}
+
+const deleteJhikeItems = (id) => {
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.delete(`${baseUrl}/${id}`, config);
+}
+export default { getjhikes, joinhike,getJhikeItems,deleteJhikeItems};

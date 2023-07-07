@@ -2,9 +2,33 @@ import './Jhike.css'
 import React, {useState} from 'react'
 import {MdClose} from "react-icons/md"
 import {BsBagX} from "react-icons/bs"
+import {useEffect} from "react"
+import JHikeService from '../../Services/JHikeService'
+import JHikeItem from './JHikeItem/JHikeItem'
+
 
 const Jhike = ({setShowJhike}) => {
+    const [jhikeItems, setjhikeItems] = useState([]);
+
+    useEffect(() => {
+        JHikeService.getJhikeItems()
+            .then((res)=> { 
+                setjhikeItems(res.data.data);
+                console.log(res.data.data);
+            })
+    }, []);
+
+    useEffect(() => {
+        let total = 0;
+        jhikeItems.map(
+            (item) =>
+            (total= total + 1)
+        );
+        
+                    
+    }, []);
     return (
+        
         <div className="hike-panel">
             <div
                 className="opac-layer"
@@ -21,6 +45,23 @@ const Jhike = ({setShowJhike}) => {
                         <span className="text">close</span>
                     </span>
                 </div>
+                {!jhikeItems.length && (
+                    <div className="empty-hike">
+                        <BsBagX />
+                        <span>You have not joined any hike</span>
+                        <button className="return-cta" onClick={() => {
+                            setShowJhike(false);
+                        }}>
+                            RETURN TO Hike
+                        </button>
+                    </div>
+                )}
+                 {!!jhikeItems.length && (
+                    <>
+                        <JHikeItem JhikeItems={jhikeItems} setJhikeItems={setjhikeItems} />
+                    </>
+                )}
+                
                 </div> 
 
         </div>

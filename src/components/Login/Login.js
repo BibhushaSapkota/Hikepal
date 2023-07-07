@@ -29,6 +29,7 @@ function LoginForm() {
       .then((response) => {
         console.log(response);
         localStorage.setItem("token", response.data.token);
+        window.localStorage.setItem('id', response.data.user._id)
         message.success("Login Successful");
         setIsLogged(true);
         window.location = "/";
