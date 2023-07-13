@@ -5,9 +5,11 @@ import './Hike.css';
 import defaultpicture from '../../Images/defaultpicture.jpg';
 
 function AddHike() {
-  const [hikeLocation, setLocation] = useState('');
+  const [HikeLocation, setLocation] = useState('');
   const [startdate, setStartdate] = useState(new Date());
   const [description, setDescription] = useState('');
+  const [Meetuplocation,setMeetuplocation]=useState('');
+  
   const [image, setImage] = useState(null);
 
   const handleImageChange = (e) => {
@@ -45,7 +47,7 @@ function AddHike() {
             type="text"
             id="name"
             name="name"
-            value={hikeLocation}
+            value={HikeLocation}
             onChange={(e) => setLocation(e.target.value)}
           />
 

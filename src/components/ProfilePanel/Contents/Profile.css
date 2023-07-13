@@ -129,7 +129,7 @@ input {
     text-align: center;
     width: 300px;
     border-radius: 10px;
-    height: 400px;
+    height: 350px;
 }
 
 .password-container h2 {
@@ -151,7 +151,7 @@ input {
 }
 
 .password-container button {
-    background-color: #007bff;
+    background-color: #f9660bee;
     color: #fff;
     padding: 10px 20px;
     border: none;
