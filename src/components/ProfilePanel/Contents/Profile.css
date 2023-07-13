@@ -57,6 +57,7 @@ h3 {
     width: 60%;
     display: flex;
     flex-direction: column;
+    padding : 2rem;
     align-items: center;
     text-align: left;
 }
@@ -102,7 +103,7 @@ input {
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #FF8E53;
+    background-color: #f9660bee;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -112,21 +113,52 @@ input {
     background-color: #fd5b10;
 }
 
-@media (min-width: 668px) {
-    .edit-profile-card {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-    }
 
-    .edit-profile__body {
-        width: 50%;
-        margin-right: 20px;
-    }
+.password-container {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    height: 400px;
 }
-@media (min-width: 668px) {
-    .profile-card {
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
+
+.password-container h2 {
+    margin: 0;
+    font-size: 1.2rem;
 }
+
+.password-container p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.password-container input[type="password"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.password-container button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px;
+}
+
+
+

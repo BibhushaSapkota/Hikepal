@@ -1,0 +1,87 @@
+.add-hike {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.add-hike h3 {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.left {
+    flex-basis: 40%;
+    margin-right: 20px;
+}
+
+.left img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.right {
+    flex-basis: 50%;
+}
+
+.add-hike .right .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-hike .right .form .label {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+}
+
+.add-hike .right .input[type="text"]{
+        flex-basis: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+.add-hike .right .textareaa{
+        flex-basis: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    
+}
+
+.add-hike .right .date-picker{
+    display: inline;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+button[type="submit"] {
+    flex-basis: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #f9660bee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #be4b03;
+}

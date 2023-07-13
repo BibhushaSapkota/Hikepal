@@ -2,15 +2,21 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {MenuItems} from './Menuitems';
+import logo from '../Images/logo.png';
+import defaultProfilePic from '../Images/defaultpicture.jpg';
 import './NavBar.css';
-import { message } from 'antd';
+import { Dropdown, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Jhike from '../JoinedHike/Jhike';
+import UserService from '../../Services/UserService';
 
 function NavBar() {
     const location = useLocation();
+    const [profile, setProfile] = useState({});
+    const [name, setName] = useState('');
     const [showJhike, setShowJhike] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [state, setState] = useState({
         clicked: false
     })
@@ -24,27 +30,60 @@ function NavBar() {
       window.location.href = '/';
     };
 
+    const handleProfileClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    useEffect(() => {
+        UserService.getprofile()
+            .then((res) => {
+                console.log(res.data.data);
+                setProfile("http://localhost:3000"+res.data.data.image);
+                setName(res.data.data.firstName + " " + res.data.data.lastName);
+            }
+            )
+            .catch((err) => {
+                console.log(err);
+            }
+            )
+    }, []);
+  
+
     const isLoggedIn = localStorage.getItem('token');
     let loginOrLogoutButton;
-    let cartButton;
-    let profileButton;
+   
 
     if (isLoggedIn) {
-      loginOrLogoutButton = (
-        <button onClick={handleLogout}>Logout</button>
-      );
-      cartButton = (
-        <li >
-          <i class="fas fa-bookmark" onClick={()=>setShowJhike(true)}></i> 
-        </li>
-      );
+      loginOrLogoutButton=(
+       <div className="dropdown-container">
+      <img
+        src={profile ? profile : defaultProfilePic}
+        alt="profile"
+        className="profile-pic"
+        onClick={handleProfileClick}
+      />
 
-      profileButton = (
-        <li > 
-        <i className="fas fa-user" onClick={() => { window.location.href = '/dashboard'}}></i> 
-        </li>
+      {isDropdownOpen && (
+        <div className="dropdown-options">
+          <ul>
+            <li onClick={()=>{window.location.href='/dashboard'}}>   
+                <i className="fas fa-user"> </i>
+                {name} 
+            </li>
+            <li onClick={()=>setShowJhike(true)}> 
+              <i class="fas fa-bookmark" ></i> 
+              Joined Hikes
+            </li> 
+            <li  onClick={handleLogout}>
+              <i className="fas fa-sign-out-alt"></i>
+              Logout
+            </li>
+            
+          </ul>
+        </div>
+      )}
+      </div>
       );
-      
   
     } else {
       
@@ -59,11 +98,13 @@ function NavBar() {
   return (
     <>
       <nav className='NavbarItems'>
-        <h1 className='navbar-logo'>Hikepal</h1>
+        <Link to='/' className='navbar-logo'>
+          <img src={logo} alt="logo" />
+        </Link>
         <div className="menu-icons" onClick={handleClick}>
-          <i className={state.clicked ? "fas fa-times" : "fas fa-bars"}></i>  
+          <i className={state. clicked ? "fas fa-times" : "fas fa-bars"}></i>  
         </div>
-        <ul className={state.clicked ? "nav-menu aactive" : "nav-menu"}>
+        <ul className={state.clicked ? "nav-menu active" : "nav-menu"}>
         {MenuItems.map((item, index) => {
           const isActive = location.pathname === item.url;
             return (
@@ -78,8 +119,7 @@ function NavBar() {
               </li>
             );
           })}
-           <span>{cartButton}</span>
-            <span>{profileButton}</span>
+          
            {loginOrLogoutButton}     
           
         </ul>

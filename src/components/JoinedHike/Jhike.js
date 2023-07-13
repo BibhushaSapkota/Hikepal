@@ -45,7 +45,13 @@ const Jhike = ({setShowJhike}) => {
                         <span className="text">close</span>
                     </span>
                 </div>
-                {!jhikeItems.length && (
+
+                 {!!jhikeItems.length && (
+                    <>
+                        <JHikeItem JhikeItems={jhikeItems} setJhikeItems={setjhikeItems} />
+                    </>
+                )}
+                 {!jhikeItems.length && (
                     <div className="empty-hike">
                         <BsBagX />
                         <span>You have not joined any hike</span>
@@ -55,11 +61,6 @@ const Jhike = ({setShowJhike}) => {
                             RETURN TO Hike
                         </button>
                     </div>
-                )}
-                 {!!jhikeItems.length && (
-                    <>
-                        <JHikeItem JhikeItems={jhikeItems} setJhikeItems={setjhikeItems} />
-                    </>
                 )}
                 
                 </div> 

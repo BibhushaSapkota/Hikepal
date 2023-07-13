@@ -2,10 +2,30 @@
     margin:4rem 6rem;
 }
 
+.popular .title-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 50vh;
+    margin-bottom: 50px;
+}
+
 .popular h1{
     font-size: 3rem;
-
 }
+
+.popular .title{
+    text-align: center;
+}
+
+.popular .title-paragraph{
+    max-width: 80%;
+    text-align: center;
+    line-height: 2rem;
+    
+}
+
 .popular-products{
     display: flex;
     align-items: center;

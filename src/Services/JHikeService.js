@@ -2,9 +2,7 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:3000/jhikes';
 
-const getjhikes = () => {
-    return axios.get(baseUrl);
-}
+
 
 const joinhike = (hikeDetails) => {
     const config = {
@@ -26,4 +24,4 @@ const deleteJhikeItems = (id) => {
     };
     return axios.delete(`${baseUrl}/${id}`, config);
 }
-export default { getjhikes, joinhike,getJhikeItems,deleteJhikeItems};
+export default {  joinhike,getJhikeItems,deleteJhikeItems};

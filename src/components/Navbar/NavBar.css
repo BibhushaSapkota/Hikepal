@@ -17,8 +17,8 @@
 }
 
 .navbar-logo{
-    height: 50px;
-    width: 50px;
+    height: 3rem;
+    width: 8rem;
     border-radius: 50%;
     margin-left: 20px;
     color: #f9660bee;
@@ -50,7 +50,6 @@
 
 }
 .nav-links:hover{
-  
   color: #f9660bee;
   text-underline-offset: 0.5rem;
   transition: all 0.3s ease;
@@ -79,6 +78,73 @@
   
 }
 
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-options ul li {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-options ul li:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-options ul li i {
+  margin-right: 10px;
+  color: #333;
+  background-color: #ccc;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-options ul li:hover {
+  color: #f9660bee;
+  background-color: #f2f2f2;
+}
+
+.dropdown-options ul li span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+.dropdown-options ul li i:hover {
+  color: #f9660bee;
+}
 
 
 @media screen and (max-width: 768px) {

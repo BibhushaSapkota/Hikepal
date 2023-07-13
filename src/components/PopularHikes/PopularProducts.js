@@ -8,8 +8,13 @@ import Annapurna2 from "../Images/annapurna2.jpg";
 const Popular=({products})=>{
     return(
         <div className="popular">
-            <h1>Most popular Hiking Trails</h1>
-            <p>Hiking is one of the most popular outdoor activities around the world. It not only provides an opportunity to explore nature but also helps in maintaining physical and mental well-being. However, finding a hiking companion can be challenging. This is where Hikepal comes in.Hikepal is a website that connects hikers with like-minded individuals who are also looking for a hiking partner. Whether you are a seasoned hiker or a beginner, Hikepal provides a platform for all to find a suitable hiking buddy.</p>
+            <div className="title-div">
+            <h1 className="title">Most popular Hiking Trails</h1>
+            <p className="title-paragraph">
+                
+Hiking has emerged as one of the most beloved outdoor activities worldwide, captivating nature enthusiasts and adventure seekers alike. Beyond its ability to offer a gateway to explore stunning landscapes, hiking also contributes significantly to physical fitness and mental well-being. However, the challenge of finding a compatible hiking companion often arises, dampening the excitement for many individuals. This is where Hikepal steps in to bridge the gap. Hikepal is an innovative website dedicated to connecting hikers with like-minded individuals who are also seeking a hiking partner. Whether you possess years of hiking experience under your belt or are just beginning to embark on this thrilling journey, Hikepal provides a comprehensive platform for all to discover their ideal hiking buddy. With a diverse community of hiking enthusiasts, Hikepal ensures that everyone can find a suitable companion to share their passion, embark on memorable adventures, and create lifelong connections. Don't let the lack of a hiking partner hold you back—join Hikepal today and unlock a world of possibilities on the trails!
+            </p>
+            </div>
             <CategoriesData
             className="popular-products"
             heading="Langtang Trek"
