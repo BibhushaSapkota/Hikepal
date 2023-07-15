@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {MenuItems} from './Menuitems';
 import logo from '../Images/logo.png';
-import defaultProfilePic from '../Images/defaultpicture.jpg';
+import defaultavatar from '../Images/avatar.png';
 import './NavBar.css';
 import { Dropdown, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +15,6 @@ function NavBar() {
     const [profile, setProfile] = useState({});
     const [name, setName] = useState('');
     const [showJhike, setShowJhike] = useState(false);
-    const [showProfile, setShowProfile] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [state, setState] = useState({
         clicked: false
@@ -37,8 +36,10 @@ function NavBar() {
     useEffect(() => {
         UserService.getprofile()
             .then((res) => {
-                console.log(res.data.data);
-                setProfile("http://localhost:3000"+res.data.data.image);
+                if (res.data.data.image!==null) {
+                    setProfile("http://localhost:3000" + res.data.data.image);
+                    setName(res.data.data.firstName + " " + res.data.data.lastName);
+                }
                 setName(res.data.data.firstName + " " + res.data.data.lastName);
             }
             )
@@ -56,12 +57,13 @@ function NavBar() {
     if (isLoggedIn) {
       loginOrLogoutButton=(
        <div className="dropdown-container">
-      <img
-        src={profile ? profile : defaultProfilePic}
-        alt="profile"
-        className="profile-pic"
-        onClick={handleProfileClick}
-      />
+        {
+          profile===null?
+          <img src={profile} alt="profile" className="profile-image" onClick={handleProfileClick} />
+          :
+          <img src={defaultavatar} alt="profile" className="profile-image" onClick={handleProfileClick} />
+        }
+      
 
       {isDropdownOpen && (
         <div className="dropdown-options">

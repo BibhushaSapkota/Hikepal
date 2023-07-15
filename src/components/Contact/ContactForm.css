@@ -18,7 +18,7 @@
     border-radius: .3rem;
     border: 1px solid #2a2a2a;
 }
-.form-container textarea{
+.form-container .textarea{
     padding:1rem;
     margin-bottom: 2rem;
     border-radius: .3rem;

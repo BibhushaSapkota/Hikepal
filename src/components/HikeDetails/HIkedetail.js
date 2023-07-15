@@ -56,19 +56,26 @@ const HikeDetailPage=({hike})=>{
                     </div>
                     <span className='divider'></span>
                         <div className="info-item">
-                            <span className='text-bold'> Hike Created By:
+
+                            <div className='photo'>
+                            <img src={"http://localhost:3000"+ hike.user.image} alt="hike"/>
+                            </div>
+                            <span className='text-bold'> 
                                 <span> {hike.user.firstName} {hike.user.lastName}</span>
                                 
                             </span>
-                            <span className='text-bold'> Contact Number:
-                                <span> {hike.user.phoneNumber}</span>
+                            <span className='text-bold'> 
+                                <span> , {hike.user.phoneNumber}</span>
                                 
                             </span>
+                        </div>
+
+                            
                             
 
                         </div>
 
-                </div>
+                
                 
             </div>
         

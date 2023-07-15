@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import SideBar from './SideBar';
 import Profile from './Contents/Profile';
 import Hike from './Contents/Hike';
-import PeopleJoined from './Contents/PeopleJoined';
 import './Home.css';
+import Myhikes from './Contents/Myhikes';
 
 
 function Homepage() {
@@ -15,8 +15,8 @@ function Homepage() {
           return <Profile/>;
         case 'Hike':
           return <Hike/>;
-        case 'Peoplejoined':
-          return <PeopleJoined/>;
+        case 'Myhikes':
+          return <Myhikes/>;
         default:
           return <Profile />;
       }

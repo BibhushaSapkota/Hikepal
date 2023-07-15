@@ -1,64 +1,63 @@
-function PeopleJoined(){
- const navigate = useNavigate();
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import "./PeopleJoined.css";
+import SideBar from "../SideBar";
+import JHikeService from "../../../Services/JHikeService";
 
-  const [products, setProducts] = useState([]);
+function PeopleJoined() {
+  const [people, setPeople] = useState([]);
+  const  location  = useLocation();
+  const [hikeId, setHikeId] = useState("");
 
-  useEffect(() => {
-    ProductService.getAll().then((res) => {
-      setProducts(res.data.data);
+
+
+  useEffect(() => { 
+    if (location.state && location.state.hikeId) {
+      setHikeId(location.state.hikeId);
+      console.log(location.state.hikeId);
     }
-    );
-  }, []);
-
-  const deleteProduct = async (productId) => {
-    console.log(productId);
-    await ProductService.deleteProduct(productId);
-    setProducts(products.filter(product => product._id !== productId));
-  };
-  
-  const editProduct = (product) => {
-    navigate('/editProduct', { state: { product } });
-  };
+    JHikeService.getpeoplejoined(location.state.hikeId)
+      .then((res) => {
+        setPeople(res.data.data);
+        console.log(res.data.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [location.state.hikeId]);
 
   return (
-    <div className="products-container">
-      <h2>Products</h2>
+    <div>
+      <SideBar />
+      <div className="App">
+      <div className='content-container'>
+      <div className="people-container">
+    
+
       <table>
         <thead>
           <tr>
-            <th>Image</th>
+            <th>Hike Location</th>
             <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Action</th>
+            <th>Contact Number</th>
           </tr>
         </thead>
-        
-          {products.map((product) => (
-            <tbody>
-            <tr key={product.id}>
-              <td>
-                <img src={"http://localhost:3000"+product.image} alt={product.name} />
-              </td>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td>{product.price}</td>
-              <td>
-                <i className="fas fa-edit" onClick={()=> editProduct(product)}></i>
-                <i
-                  className="fas fa-trash-alt"
-                  onClick={() => deleteProduct(product._id)}
-                ></i>
-              </td>
+        <tbody>
+          {people.map((person) => (
+            <tr key={person._id}>
+              <td>{person.hike.HikeLocation}</td>
+              <td>{person.user.firstName}</td>
+              <td>{person.user.phoneNumber}</td>
             </tr>
-            </tbody>
           ))}
-          
-        
+        </tbody>
       </table>
+      </div>
+      </div>
     </div>
+    </div>
+   
   );
-};
+}
 
-
-export default PeopleJoined
+export default PeopleJoined;

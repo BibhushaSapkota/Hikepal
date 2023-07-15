@@ -10,6 +10,7 @@ import {Routes,Route,useMatch } from 'react-router-dom';
 import './App.css';
 import HikeDetailPage from './components/HikeDetails/HIkedetail';
 import Homepage from './components/ProfilePanel/Home';
+import PeopleJoined from './components/ProfilePanel/Contents/PeopleJoined';
 
 
 function App() {
@@ -22,6 +23,11 @@ function App() {
                 ?hikes.find(h=>h._id===match.params.id)
                 :null
 
+
+  const matchh=useMatch('/peoplejoined/:id')
+  const hikee=matchh
+                ?hikes.find(h=>h._id===match.params.id)
+                :null
   return (
    <div> 
     <Routes>
@@ -33,7 +39,7 @@ function App() {
     <Route path='/hike' element={<Hike hikes={hikes} setHikes={setHikes}/>}/>
     <Route path="/hikes/:id" element={<HikeDetailPage hike={hike}/>} exact/> 
     <Route path='/dashboard' element={<Homepage/>}/>
-
+    <Route path="/peoplejoined" element={<PeopleJoined/>} exact/>
     </Routes>
    </div>
   );

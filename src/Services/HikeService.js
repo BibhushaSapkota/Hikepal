@@ -7,7 +7,25 @@ const gethikes = () => {
 }
 
 const addhike = (hikeDetails) => {
-    return axios.post(`${baseUrl}`, hikeDetails);
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.post(`${baseUrl}`, hikeDetails,config);
 }
 
-export default { gethikes, addhike};
+
+const getmyhikes=()=>{
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.get(`${baseUrl}/${window.localStorage.getItem('id')}`,config);
+}
+
+
+const getpeoplejoined=(hikeid)=>{
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.get(`${baseUrl}/${hikeid}`,config);
+}
+export default { gethikes, addhike,getmyhikes, getpeoplejoined};

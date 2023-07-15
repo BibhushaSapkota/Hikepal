@@ -4,7 +4,7 @@ import Hike from './Hike/Hike';
 
 const HikesContainer=({hikes})=>{
     return(
-        <div className="hikes-container" >
+        <div className="hikes-containerr" >
             <div className="section-heading">Upcoming Hikes</div>
             <div className="hikes">
                 {hikes.map((items)=>{

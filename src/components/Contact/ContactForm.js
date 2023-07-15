@@ -1,5 +1,5 @@
 import './ContactForm.css'
-
+import {message} from 'antd'
 function ContactForm(){
     return(
         <div className='form-container'>
@@ -8,7 +8,7 @@ function ContactForm(){
                 <input type="text" placeholder="Name"/>
                 <input type="email" placeholder="Email"/>
                 <textarea placeholder="Message"></textarea>
-                <button>Send</button>
+                <button onClick={()=>{message.success('Message sent successfully')}}>Send</button>
             </form>
         </div>
     )

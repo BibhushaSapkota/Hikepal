@@ -31,7 +31,7 @@ function Profile() {
       
       }
       else {
-        setImage(defaultAvatar);
+        setImageName(defaultAvatar);
       }
       setFirstName(res.data.data.firstName);
       setLastName(res.data.data.lastName);
@@ -77,7 +77,13 @@ return (
         <div className="profile-card">
           <div className="profile__header">
             <div className="avatar">
-              {image && <img className='avatar' src={imageName} alt="avatar" /> }
+               {
+              image===null?
+              <img src={defaultAvatar} alt="profile" className="profile-image" />
+              :
+              <img src={imageName} alt="profile" className="profile-image"/>
+               }
+
             </div>
           </div>
           <div className="profile__body">

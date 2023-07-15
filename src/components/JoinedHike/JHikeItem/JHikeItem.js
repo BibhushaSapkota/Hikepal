@@ -9,7 +9,7 @@ const JHikeItem = ({JhikeItems,setJhikeItems}) => {
 
     const handleRemoveFromJHike = (hike) => {
         console.log(hike._id)
-        JHikeService.deleteCartItems(hike._id)
+        JHikeService.deleteJhikeItems(hike._id)
             .then((res) => {
                 console.log(res);
                 message.success("Hike removed from joined hike");

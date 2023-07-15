@@ -1,5 +1,6 @@
 .hike-main-content {
     margin: 8rem 0;
+
 }
 
 .layout {
@@ -11,6 +12,8 @@
 .hike-detail-page {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background: none;
 }
 
 .hike-detail-page .left {
@@ -70,8 +73,6 @@
 .join-hike-button {
     outline: 0;
     border: 0;
-    height: 5rem;
-    width: 15rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,15 +89,36 @@
     margin: 20px 0;
     height: 1px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.784);
 
 }
 
-.info-item .text-bold {
-    font-size: 1rem;
-    font-weight: 500;
-    display: block;
+.info-item {
+    margin:1rem;
+    display: flex;
+    align-items: center;
+}
 
+.info-item .photo {
+    
+    width: 50px;
+    height: 50px;
+   
+    /* Replace with desired background color or image */
+}
+
+.info-item img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.info-item span {
+    margin-left: 5px;
 }
 
 

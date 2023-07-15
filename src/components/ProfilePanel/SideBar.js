@@ -44,9 +44,9 @@ const SideBar = ({ setActiveComponent }) => {
                 <i className='fas fa-person-hiking nav-link-icon'></i>
                 <span className='nav-link-name'>Hike</span>
               </Link>
-              <Link to='/dashboard' className='nav-link' onClick={()=>handleLinkClick('Peoplejoined')}>
+              <Link to='/dashboard' className='nav-link' onClick={()=>handleLinkClick('Myhikes')}>
                 <i className='fas fa-users nav-link-icon'></i>
-                <span className='nav-link-name'>People joined </span>
+                <span className='nav-link-name'>Myhikes </span>
               </Link>
               
                         

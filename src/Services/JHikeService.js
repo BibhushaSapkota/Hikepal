@@ -24,4 +24,11 @@ const deleteJhikeItems = (id) => {
     };
     return axios.delete(`${baseUrl}/${id}`, config);
 }
-export default {  joinhike,getJhikeItems,deleteJhikeItems};
+
+const getpeoplejoined=(hikeid)=>{
+    const config = {
+        headers: { Authorization: `Bearer ${window.localStorage.getItem('token')}` }
+    };
+    return axios.get(`${baseUrl}/hike/${hikeid}`,config);
+}
+export default { joinhike,getJhikeItems,deleteJhikeItems,getpeoplejoined};

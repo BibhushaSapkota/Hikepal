@@ -82,6 +82,18 @@
   position: relative;
   display: inline-block;
 }
+.dropdown-container:hover .dropdown-options {
+  display: block;
+}
+.dropdown-container:hover .dropdown-btn {
+  background-color: #f1f1f1;
+}
+.dropdown-container img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 .profile-pic {
   width: 40px;

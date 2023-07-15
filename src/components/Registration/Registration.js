@@ -17,29 +17,47 @@ function RegistrationForm() {
 
 
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      if (!firstName ||!lastName  ||!phoneNumber || !email || !password || !confirmPassword) {
-        throw new Error('All fields are required')
-      }  
-      if (password !== confirmPassword) {
-        throw new Error('Passwords do not match')
-      } 
-      const response = await userService.register({firstName,lastName,phoneNumber,email,password })
-      
+ async function handleSubmit(e) {
+  console.log('here1')
+  e.preventDefault();
   
-      if (response.data.status) {
-        message.success("User registered Successful")
-        Navigate('/login')
-        
-      } else {
-        throw new Error('Error occurred while registering')
-      }
-    } catch (error) {
-      window.alert(e.response.data.error)
+    console.log('here2')
+    if (!firstName || !lastName || !phoneNumber || !email || !password || !confirmPassword) {
+      throw new Error('All fields are required');
+      console.log('here3')
     }
-  }
+    else if (isNaN(phoneNumber) || phoneNumber.length !== 10) {
+      message.error('Phone number is invalid');
+      console.log('here4')
+    }
+    else if (password !== confirmPassword) {
+      throw new Error('Passwords do not match');
+      console.log('here5')
+    }
+    else if (password.length < 6) {
+      throw new Error('Password must be at least 6 characters');
+      console.log('here6')
+    }
+    
+    else {
+      console.log('hereeee')
+      userService.register({firstName, lastName, phoneNumber, email, password })
+        .then((res) => {
+          console.log('here8')
+          console.log(res);
+          message.success("Registration Successful");
+          window.location = "/login";
+
+      })
+      .catch(() => {
+        message.error("Registration Failed");
+      });
+
+    }
+
+
+}
+
   
 
   const togglePasswordVisibility = () => {
